@@ -52,7 +52,8 @@ outputs:
     files:
       # Only distribute the binary but not the static library. It does not have a publicly
       # documented API.
-      - bin/uppasd
+      - bin/uppasd  # [unix]
+      - Library/bin/uppasd.exe  # [win]
 
 about:
   home: https://github.com/UppASD/UppASD
