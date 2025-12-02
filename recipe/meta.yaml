@@ -47,15 +47,10 @@ outputs:
       commands:
         - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
         - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
-#    files:
-#      # Only distribute the binary but not the static library. It does not have a publicly
-#      # documented API.
-#      include:
-#        - bin/uppasd  # [not win]
-#        - Library/bin/uppasd.exe  # [win]
-#      exclude:
-#        - lib/libasdlib.a  # [not win]
-#        - Library/lib/libasdlib.a  # [win]
+    files:
+      # Only distribute the binary but not the static library. It does not have a publicly
+      # documented API.
+      - bin/uppasd
 
 about:
   home: https://github.com/UppASD/UppASD
