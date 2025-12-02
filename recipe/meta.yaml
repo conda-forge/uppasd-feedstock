@@ -19,13 +19,6 @@ source:
 build:
   number: 1
 
-test:
-  source_files:
-    - examples/SimpleSystems/bccFe
-  commands:
-    - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
-    - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
-
 outputs:
   - name: uppasd
     script: build-uppasd.sh  # [unix]
@@ -48,6 +41,12 @@ outputs:
       run:
         - libblas * *mkl  # [win]
         - mkl >={{ mkl }}  # [win]
+    test:
+      source_files:
+        - examples/SimpleSystems/bccFe
+      commands:
+        - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
+        - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
 #    files:
 #      # Only distribute the binary but not the static library. It does not have a publicly
 #      # documented API.
