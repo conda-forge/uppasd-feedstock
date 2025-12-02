@@ -17,13 +17,13 @@ source:
     - patches/0007-Fix-print-formatting-syntax-errors.patch  # [win]
 
 build:
-  number: 1
+  number: 2
 
 test:
   source_files:
     - examples/SimpleSystems/bccFe
   commands:
-    - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
+    - cd examples/SimpleSystems/bccFe && uppasd  # [unix]
     - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
 
 outputs:
