@@ -25,6 +25,7 @@ outputs:
     script: build-uppasd.bat  # [win]
     requirements:
       build:
+        - {{ compiler('c') }}
         - {{ compiler('fortran') }}
         - {{ stdlib('c') }}
         - cmake
@@ -41,8 +42,6 @@ outputs:
       run:
         - libblas * *mkl  # [win]
         - mkl >={{ mkl }}  # [win]
-        - libgcc >={{ fortran_compiler_version }}  # [osx]
-        #- {{ pin_compatible('libgcc', max_pin='x') }}  # [osx]
     test:
       source_files:
         - examples/SimpleSystems/bccFe
