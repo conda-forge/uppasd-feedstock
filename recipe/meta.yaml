@@ -25,7 +25,8 @@ outputs:
     script: build-uppasd.bat  # [win]
     requirements:
       build:
-        - {{ compiler('c') }}
+        - {{ compiler('c') }}  # [not osx]
+        - {{ compiler('gcc') }}  # [osx]
         - {{ compiler('fortran') }}
         - {{ stdlib('c') }}
         - cmake

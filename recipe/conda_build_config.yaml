@@ -1,4 +1,2 @@
 mkl:
   - '2025'  # [win]
-c_compiler:  # [osx]
-  - gcc  # [osx]
