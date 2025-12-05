@@ -16,6 +16,10 @@ fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '14'
+gcc_compiler:
+- gcc
+gcc_compiler_version:
+- '15'
 libblas:
 - 3.9.* *netlib
 liblapack:

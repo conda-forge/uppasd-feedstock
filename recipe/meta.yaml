@@ -17,14 +17,7 @@ source:
     - patches/0007-Fix-print-formatting-syntax-errors.patch  # [win]
 
 build:
-  number: 1
-
-test:
-  source_files:
-    - examples/SimpleSystems/bccFe
-  commands:
-    - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
-    - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
+  number: 2
 
 outputs:
   - name: uppasd
@@ -32,6 +25,8 @@ outputs:
     script: build-uppasd.bat  # [win]
     requirements:
       build:
+        - {{ compiler('c') }}  # [not osx]
+        - {{ compiler('gcc') }}  # [osx]
         - {{ compiler('fortran') }}
         - {{ stdlib('c') }}
         - cmake
@@ -48,15 +43,17 @@ outputs:
       run:
         - libblas * *mkl  # [win]
         - mkl >={{ mkl }}  # [win]
+    test:
+      source_files:
+        - examples/SimpleSystems/bccFe
+      commands:
+        - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
+        - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
     files:
       # Only distribute the binary but not the static library. It does not have a publicly
       # documented API.
-      include:
-        - bin/uppasd  # [not win]
-        - Library/bin/uppasd.exe  # [win]
-      exclude:
-        - lib/libasdlib.a  # [not win]
-        - Library/lib/libasdlib.a  # [win]
+      - bin/uppasd  # [unix]
+      - Library/bin/uppasd.exe  # [win]
 
 about:
   home: https://github.com/UppASD/UppASD
