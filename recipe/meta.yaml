@@ -50,9 +50,9 @@ outputs:
         - examples/SimpleSystems/bccFe
       commands:
         - cd examples/SimpleSystems/bccFe && uppasd  # [unix]
-        - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
         - cd ../../../test && uppasd  # [unix]
-        - cd ../../../test && uppasd.exe  # [win]
+        #- cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
+        - cd test && uppasd.exe  # [win]
     files:
       # Only distribute the binary but not the static library. It does not have a publicly
       # documented API.
