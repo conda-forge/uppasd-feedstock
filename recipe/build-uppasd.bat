@@ -5,7 +5,7 @@ md build
 cmake -S . -B build ^
     -G Ninja ^
     -DCMAKE_BUILD_TYPE:STRING=Release ^
-    -DCMAKE_Fortran_FLAGS="-I%PREFIX%\Library\include" ^
+    -DCMAKE_Fortran_FLAGS="-I%PREFIX%\Library\include -fno-stack-arrays" ^
     -DCMAKE_INSTALL_LIBDIR=lib ^
     -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
