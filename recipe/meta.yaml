@@ -44,11 +44,15 @@ outputs:
         - libblas * *mkl  # [win]
         - mkl >={{ mkl }}  # [win]
     test:
+      files:
+        - test
       source_files:
         - examples/SimpleSystems/bccFe
       commands:
-        - cd examples/SimpleSystems/bccFe && uppasd  # [not win and build_platform == target_platform]
+        - cd examples/SimpleSystems/bccFe && uppasd  # [unix]
         - cd examples/SimpleSystems/bccFe && uppasd.exe  # [win]
+        - cd ../../../test && uppasd  # [unix]
+        - cd ../../../test && uppasd.exe  # [win]
     files:
       # Only distribute the binary but not the static library. It does not have a publicly
       # documented API.
