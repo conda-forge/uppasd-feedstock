@@ -1,11 +1,11 @@
-{% set version = "v6.0.2" %}
+{% set version = "6.0.2" %}
 
 package:
   name: uppasd-split
   version: {{ version }}
 
 source:
-  url: https://github.com/UppASD/UppASD/releases/download/{{ version }}/{{ version }}.tar.gz
+  url: https://github.com/UppASD/UppASD/releases/download/v{{ version }}/v{{ version }}.tar.gz
   sha256: f483bb6e0a5c75820e4a3d38894c40557548777160eabd3c152c8c356e6ca8ed
   patches:
     - patches/0001-Change-name-of-binary-from-sd-to-uppasd.patch
@@ -17,7 +17,7 @@ source:
     - patches/0007-Fix-print-formatting-syntax-errors.patch  # [win]
 
 build:
-  number: 4
+  number: 0
 
 outputs:
   - name: uppasd
